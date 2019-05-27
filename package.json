@@ -1,0 +1,58 @@
+{
+  "name": "naijachops-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
+    "debug": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.0",
+    "nyc": "^14.1.1"
+  },
+  "scripts": {
+    "test": "DEBUG=naijachops*  nyc --reporter=text --reporter=html mocha --timeout=20000 --recursive --exit",
+    "start:dev": "cross-env NODE_ENV=development DEBUG=naijachops* nodemon ./src/app.js --exec babel-node ",
+    "coverage": "nyc npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danieldare/9jachops-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danieldare/9jachops-backend/issues"
+  },
+  "homepage": "https://github.com/danieldare/9jachops-backend#readme",
+  "nyc": {
+    "require": [
+      "@babel/register",
+      "@babel/polyfill"
+    ],
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "node_modules/*"
+    ]
+  }
+}
